@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<!--back-->
+	<!--right -->
+	<!--up -->
+	
+
+    <path>transparent.ac</path>
+    <animation> 
+      <type>translate</type>
+      <object-name>noshadow.canglass</object-name>
+      <property>controls/canopy/position-norm</property>
+      <factor>0.6</factor>
+      <axis> 
+        <x>1</x>
+        <y>0</y>
+        <z>0.05</z>
+      </axis>
+    </animation>
+
+</PropertyList>

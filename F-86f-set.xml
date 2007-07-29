@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+F-86 Sabre 
+
+July 2007,  Detlef Faber
+************************************************************************
+-->
+
+<PropertyList>
+
+ <sim>
+
+  <description>North American F-86 F Sabre</description>
+  <author>Detlef Faber</author>
+  <status>beta</status>
+  <flight-model>yasim</flight-model>
+  <aero>f86f-yasim</aero>
+<!--
+  <fuel-fraction>1.0</fuel-fraction>
+-->
+  <systems>
+   <electrical>
+    <path>Aircraft/Generic/generic-electrical.xml</path>
+   </electrical>
+  </systems> 
+ 
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+  <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+  <sound>
+   <path>Aircraft/F-86/Sounds/F-86-sounds.xml</path>
+  </sound>
+
+  <submodels> 
+    <serviceable type="bool">true</serviceable>
+    <path>Aircraft/F-86/Models/submodels.xml</path>
+  </submodels>
+
+  <panel>
+  <path>Aircraft/Generic/Panels/generic-vfr-panel.xml</path>
+  <visibility>false</visibility>
+  </panel>
+
+  <model>
+   <path>Aircraft/F-86/Models/F-86f.xml</path>
+  </model> 
+
+  <view n="0">
+   <internal archive="y">true</internal>
+   <config>
+    <x-offset-m archive="y" type="double">0.0</x-offset-m>
+    <y-offset-m archive="y" type="double">0.8</y-offset-m>
+    <z-offset-m archive="y" type="double">2.7</z-offset-m>
+    <pitch-offset-deg>-7.5</pitch-offset-deg>
+   </config>
+  </view>
+
+  <view n="1">
+   <config>
+    <target-z-offset-m archive="y" type="double">3.349</target-z-offset-m>
+   </config>
+  </view>
+
+  <view n="2">
+   <config>
+    <target-z-offset-m archive="y" type="double">3.349</target-z-offset-m>
+   </config>
+  </view>
+
+  <view n="3">
+   <config>
+    <target-z-offset-m archive="y" type="double">3.349</target-z-offset-m>
+   </config>
+  </view>
+
+  <view n="4">
+   <config>
+    <target-z-offset-m archive="y" type="double">3.349</target-z-offset-m>
+   </config>
+  </view>
+
+ <autopilot>
+   <config>
+     <min-climb-speed-kt type="float">70.0</min-climb-speed-kt>
+     <best-climb-speed-kt type="float">75.0</best-climb-speed-kt>
+     <target-climb-rate-fpm type="float">500.0</target-climb-rate-fpm>
+     <target-descent-rate-fpm type="float">1000.0</target-descent-rate-fpm>
+     <elevator-adj-factor type="float">4000.0</elevator-adj-factor>
+     <integral-contribution type="float">0.01</integral-contribution>
+     <zero-pitch-throttle type="float">0.45</zero-pitch-throttle>
+     <zero-pitch-trim-full-throttle type="float">0.14</zero-pitch-trim-full-throttle>
+   </config>
+ </autopilot>
+
+  <hud>
+   <enable3d>false</enable3d>
+  </hud>  
+
+    <help>
+    <key>
+      <name>N</name>
+      <desc>extend Speedbrake</desc>
+    </key>
+    <key>
+      <name>N</name>
+      <desc>retract Speedbrake</desc>
+    </key>
+    <key>
+      <name>C</name>
+      <desc>toggle Canopy</desc>
+    </key>
+    <text>---Take Off---
+Flaps down 10 degrees, Apply full power. Lift Nosegear at 120-130 knots Lift off at about 150 knots.  A high AOA during takeoff is normal. Leading edge slats extend and retract automatically.
+
+---Landing---
+lower Flaps and Gear. Approach Speed is 120 knots. Use full speedbrakes during approach may be required (in fact most pilots even opened their canopy on final to get some extra drag).</text>
+  </help>
+
+
+
+  <weight n="0">
+      <name>left Wing</name>
+			<tank>4</tank>
+      <weight-lb type="double">0</weight-lb>
+      <selected>none</selected>
+      <opt><name>none</name><lbs>0</lbs></opt>
+      <opt><name>Droptank</name>
+      <lbs>150.0</lbs>
+			<gals>120</gals>
+      </opt>
+  </weight>
+
+  <weight n="1">
+      <name>right Wing</name>
+			<tank>5</tank>
+      <weight-lb type="double">0</weight-lb>
+      <selected>none</selected>
+      <opt><name>none</name><lbs>0</lbs></opt>
+      <opt><name>Droptank</name>
+      <lbs>150.0</lbs>
+			<gals>120</gals>
+      </opt>
+  </weight>
+ </sim>
+
+ <engines>
+  <engine>
+   <rpm type="double">700</rpm>
+  </engine>
+ </engines>
+
+ <consumables>
+  <fuel>
+   <tank n="0">
+    <name>Internal 1</name>
+    <selected type="bool">true</selected>
+   </tank>
+   <tank n="1">
+    <name>Internal 2</name>
+    <selected type="bool">true</selected>
+   </tank>
+   <tank n="2">
+    <name>Wing left</name>
+    <selected type="bool">true</selected>
+   </tank>
+   <tank n="3">
+    <name>Wing right</name>
+    <selected type="bool">true</selected>
+   </tank>
+   <tank n="4">
+    <name>Droptank left</name>
+    <selected type="bool">false</selected>
+		<level-gal_us>120</level-gal_us>
+   </tank>
+   <tank n="5">
+    <name>Droptank right</name>
+    <selected type="bool">false</selected>
+		<level-gal_us>120</level-gal_us>
+   </tank>
+  </fuel>
+ </consumables>
+
+ <!-- set prop for the manual "bookmark" arrow on the remote compas -->
+ <instrumentation>
+    <magnetic-compass>
+       <bookmark-heading-deg type="double">43.0</bookmark-heading-deg>
+    </magnetic-compass>
+ </instrumentation>
+
+ <!-- set up control properties for YASim -->
+ <controls>
+   <engines>
+      <engine n="0">
+        <magnetos>3</magnetos>
+        <boost type="double">0.33</boost>
+      </engine>
+   </engines>
+   <gear>
+      <tailwheel-lock>false</tailwheel-lock>
+   </gear>
+   <canopy>
+      <canopy-pos-norm type="float">1.0</canopy-pos-norm>
+   </canopy>
+ 
+
+ </controls>
+
+ <yasim>
+   <weights>
+     <pilot-lb>210</pilot-lb>
+   </weights>
+ </yasim>
+ <!-- Map Keys -->
+ <input>
+    <keyboard>
+      <key n="67">
+        <name>C</name>
+        <desc>Toggle Canopy</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>f86f.toggle_canopy()</script>
+        </binding>
+      </key>
+
+      <key n="4">
+        <name>Ctrl-d</name>
+        <desc>drop Tank</desc>
+        <binding>
+          <command>nasal</command>
+          <script>f86f.drop_tank()</script>
+        </binding>
+      </key>  
+<!-- map keys for Speedbrakes -->
+      <key n="78"> 
+        <name>N</name>
+        <desc>Extend Speedbrakes</desc>
+        <binding> 
+          <command>property-adjust</command>
+          <property>/controls/flight/speedbrake</property>
+          <step type="double">0.2</step>
+          <min type="double">0</min>
+          <max type="double">1</max>
+        </binding>
+      </key>
+      <key n="110"> 
+        <name>n</name>
+        <desc>Retract Speedbrakes</desc>
+        <binding> 
+          <command>property-adjust</command>
+          <property>/controls/flight/speedbrake</property>
+          <step type="double">-0.2</step>
+          <min type="double">0</min>
+          <max type="double">1</max>
+        </binding>
+      </key>
+
+     </keyboard>
+ </input>
+
+<!-- Nasal files/scripts -->
+  <nasal>
+    <f86f>
+      <file>Aircraft/F-86/f86f.nas</file>
+      <script>ext_slats();</script>
+    </f86f>
+
+    <pilot-g>
+     <file>Aircraft/F-86/pilot-g.nas</file>
+    </pilot-g>
+
+  </nasal>
+
+</PropertyList>
+
+
+
+

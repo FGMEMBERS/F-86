@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<!--back-->
+	<!--right -->
+	<!--up -->
+	
+
+     <model>
+		<name>left Droptank</name>
+		<path>Aircraft/F-86/Models/droptank.ac</path>
+		<offsets>
+			<x-m>4.7</x-m>
+			<y-m>3.0</y-m>
+			<z-m>-1.2</z-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>	
+
+     <model>
+		<name>left droptank pylon</name>
+		<path>Aircraft/F-86/Models/pylon.ac</path>
+		<offsets>
+			<x-m>4.7</x-m>
+			<y-m>3.0</y-m>
+			<z-m>-1.2</z-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>	
+
+     <model>
+		<name>right Droptank</name>
+		<path>Aircraft/F-86/Models/droptank.ac</path>
+		<offsets>
+			<x-m>4.7</x-m>
+			<y-m>-3.0</y-m>
+			<z-m>-1.2</z-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>	
+
+     <model>
+		<name>right droptank pylon</name>
+		<path>Aircraft/F-86/Models/pylon.ac</path>
+		<offsets>
+			<x-m>4.7</x-m>
+			<y-m>-3.0</y-m>
+			<z-m>-1.2</z-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>	
+
+	<!--+++++++++++++++++++++++++++++++++++++++++++++-->
+	<!--++++++++++++  ANIMATIONS  +++++++++++++++++++-->
+	<!--+++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+<!--Droptank -->
+
+ <animation>
+  <type>select</type>
+  <object-name>left Droptank</object-name>
+  <condition>
+   <greater-than>
+    <property>sim/weight[0]/weight-lb</property>
+    <value>149.0</value>
+   </greater-than>
+  </condition>
+ </animation>
+ <animation>
+  <type>select</type>
+  <object-name>right Droptank</object-name>
+  <condition>
+   <greater-than>
+    <property>sim/weight[1]/weight-lb</property>
+    <value>149.0</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+
+
+
+</PropertyList>
