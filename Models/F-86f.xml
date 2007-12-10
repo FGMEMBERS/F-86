@@ -597,9 +597,11 @@
  
 	<model>
 		<path>Aircraft/F-86/Models/equipment.xml</path>
+		<nopreview/>
 	</model>
    	<model> 
       <path>Aircraft/F-86/Models/blackout.xml</path>
+		<nopreview/>
       <offsets> 
         <x-m>2.7</x-m>
         <y-m>0.0</y-m>
