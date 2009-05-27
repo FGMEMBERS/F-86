@@ -7,54 +7,56 @@
     
 
 	<model> 
-      <path>Aircraft/A-10/Models/A-10-alti.xml</path>
+      <path>Aircraft/Instruments-3d/altimeter/altimeter.xml</path>
       <offsets> 
-        <x-m>1.944</x-m>
-        <y-m>-0.1</y-m>
-        <z-m>0.34</z-m>
+        <x-m>1.9449</x-m>
+        <y-m>-0.1236</y-m>
+        <z-m>0.3125</z-m>
       </offsets>
     </model>
+
 	<model> 
       <path>Aircraft/A-10/Models/A-10-asi.xml</path>
       <offsets> 
-        <x-m>1.944</x-m>
-        <y-m>-0.1</y-m>
-        <z-m>0.43</z-m>
+        <x-m>1.9447</x-m>
+        <y-m>-0.1274</y-m>
+        <z-m>0.3964</z-m>
       </offsets>
     </model>
+
 	<model> 
-      <path>Aircraft/A-6E/Models/accelerometer.xml</path>
+      <path>Aircraft/A-10/Models/A-10-accel.xml</path>
       <offsets> 
-        <x-m>1.948</x-m>
-        <y-m>-0.2</y-m>
-        <z-m>0.5</z-m>
+        <x-m>1.9480</x-m>
+        <y-m>-0.1729</y-m>
+        <z-m>0.4739</z-m>
       </offsets>
     </model> 
 
 	<model> 
-      <path>Aircraft/A-6E/Models/vsi.xml</path>
+      <path>Aircraft/A-10/Models/A-10-vsi-6kfpm.xml</path>
       <offsets> 
         <x-m>1.96</x-m>
-        <y-m>0.13</y-m>
-        <z-m>0.23</z-m>
+        <y-m>0.0534</y-m>
+        <z-m>0.1760</z-m>
       </offsets>
     </model>
 
 	<model> 
-      <path>Aircraft/A-6E/Models/clock.xml</path>
+      <path>Aircraft/Instruments-3d/chronograph/chronograph.xml</path>
       <offsets> 
-        <x-m>2.05</x-m>
-        <y-m>0.29</y-m>
-        <z-m>0.58</z-m>
+        <x-m>1.9440</x-m>
+        <y-m>-0.1220</y-m>
+        <z-m>0.2281</z-m>
       </offsets>
     </model>
 
 	<model> 
       <path>Aircraft/A-6E/Models/ai.xml</path>
       <offsets> 
-        <x-m>1.96</x-m>
-        <y-m>0.13</y-m>
-        <z-m>0.34</z-m>
+        <x-m>1.9431</x-m>
+        <y-m>0.0569</y-m>
+        <z-m>0.3736</z-m>
       </offsets>
     </model>
 

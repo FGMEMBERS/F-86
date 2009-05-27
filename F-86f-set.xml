@@ -264,7 +264,9 @@ lower Flaps and Gear. Approach Speed is 120 knots. Use full speedbrakes during a
       <file>Aircraft/F-86/f86f.nas</file>
       <script>ext_slats();</script>
     </f86f>
-
+    <chronograph>
+      <file>Aircraft/Instruments-3d/chronograph/chronograph.nas</file>
+    </chronograph>
     <pilot-g>
      <file>Aircraft/F-86/pilot-g.nas</file>
     </pilot-g>
