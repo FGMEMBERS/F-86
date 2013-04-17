@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+	<path>a4sight.ac</path>
+
+	<animation>
+		<type>material</type>
+		<object-name>reflectorglass</object-name>
+		<emission>
+			<!--<factor-prop>/controls/lighting/panel-norm</factor-prop>-->
+			<factor>5.0</factor>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</emission>
+		<shininess>100</shininess>
+	</animation>
+
+
+	<!-- *** LoD *** -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>35</max-m>
+	</animation>
+
+</PropertyList>

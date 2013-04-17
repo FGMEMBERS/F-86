@@ -42,3 +42,6 @@ drop_tank = func {
      setprop("/sim/weight[1]/selected","none");
      } 
  }
+
+
+var config = gui.Dialog.new("/sim/gui/dialogs/appearance/dialog", "Aircraft/F-86/Dialogs/config.xml");

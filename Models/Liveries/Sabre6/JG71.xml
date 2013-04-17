@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Luftwaffe JG 71</name>
+            <texture>Liveries/JG71.jpg</texture>
+        </livery>
+    </model>
+    <rendering>
+   <refl_correction type="string">-0.15</refl_correction>
+    </rendering>
+</sim>
+</PropertyList>

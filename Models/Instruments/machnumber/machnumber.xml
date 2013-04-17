@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>machnumber.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>machnumber</object-name>
+  <object-name>needle1</object-name>
+  <object-name>needle2</object-name>
+  <emission>
+    <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+    <red>0.5</red>
+    <green>0.25</green>
+    <blue>0.25</blue>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>3</max-m>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+  <property>/instrumentation/airspeed-indicator/indicated-mach</property>
+  <factor>0.36</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+
+</PropertyList>
+
+
