@@ -221,6 +221,5 @@ var init = setlistener("/sim/signals/fdm-initialized", func() {
   removelistener(init); # only call once
   var hud_pilot = HUD.new({"node": "reflectorglass"});
   hud_pilot.update();
-#  var hud_copilot = HUD.new({"node": "HUD.l.canvas.001"});
-#  hud_copilot.update();
+
 });

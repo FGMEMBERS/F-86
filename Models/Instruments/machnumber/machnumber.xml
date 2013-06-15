@@ -7,7 +7,6 @@
   <type>material</type>
   <object-name>machnumber</object-name>
   <object-name>needle1</object-name>
-  <object-name>needle2</object-name>
   <emission>
     <factor-prop>/controls/lighting/instruments-norm</factor-prop>
     <red>0.5</red>
@@ -25,8 +24,33 @@
  <animation>
   <type>rotate</type>
   <object-name>needle1</object-name>
-  <property>/instrumentation/airspeed-indicator/indicated-mach</property>
-  <factor>0.36</factor>
+  <property>instrumentation/airspeed-indicator/indicated-mach</property>
+	<interpolation>
+		<entry>
+				<ind>0.0</ind>
+				<dep>6.0</dep>
+		</entry>
+		<entry>
+				<ind>0.5</ind>
+				<dep>6.0</dep>
+		</entry>
+		<entry>
+				<ind>0.7</ind>
+				<dep>78.0</dep>
+		</entry>
+		<entry>
+				<ind>0.9</ind>
+				<dep>147.0</dep>
+		</entry>
+		<entry>
+				<ind>1.2</ind>
+				<dep>250.0</dep>
+		</entry>
+		<entry>
+				<ind>1.5</ind>
+				<dep>352.0</dep>
+		</entry>
+	</interpolation>
   <axis>
    <x>-1</x>
    <y>0</y>

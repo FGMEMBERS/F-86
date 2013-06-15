@@ -6,13 +6,13 @@ MATERIAL "knob" rgb 0.17332 0.17332 0.17332 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 
 MATERIAL "metal2" rgb 0.444877 0.471262 0.51332 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 64 trans 0
 MATERIAL "case" rgb 0.31095 0.317836 0.326654 amb 1 1 1 emis 0 0 0 spec 1 0.9999 0.9999 shi 20 trans 0
 OBJECT world
-kids 16
+kids 17
 OBJECT poly
 name "Circle.003"
 loc 0.022411 0.004898 0.075063
 data 10
 Circle.003
-texture "VHF.png"
+texture "ANARN-6.png"
 texrep 1.000000 1.000000
 crease 179.000000
 numvert 48
@@ -6534,7 +6534,7 @@ name "onoff"
 loc 0.039871 0.00496 0.04796
 data 5
 onoff
-texture "VHF.png"
+texture "ANARN-6.png"
 texrep 1.000000 1.000000
 crease 179.000000
 numvert 73

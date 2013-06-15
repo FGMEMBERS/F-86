@@ -104,3 +104,21 @@ var reinit_hit = func {
 
 setlistener( "ai/models/model-impact", check_hit);
 
+setlistener("ai/models/bomb-impact", func(n) {
+    var impact = n.getValue();
+    var solid = getprop(impact ~ "/material/solid");
+    print ("ground hit");
+    if (solid)
+    {
+      var long = getprop(impact ~ "/impact/longitude-deg");    
+      var lat = getprop(impact ~ "/impact/latitude-deg");
+			var fused = getprop ("sim/armament/bomb_fused");
+					print (fused);
+					if ( fused != -1 ) {
+							print ("armed ");
+		     			settimer (func {geo.put_model( "Aircraft/F-86/Models/Effects/crater.ac", lat, long )}, fused);
+
+					}
+    }
+});
+

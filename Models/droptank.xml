@@ -2,12 +2,12 @@
 
   <PropertyList> 
     <path>droptank.ac</path>
-
+<!--
   <animation>
     <type>material</type>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>Sabre-1.png</texture>
   </animation>
-
+-->
   </PropertyList>

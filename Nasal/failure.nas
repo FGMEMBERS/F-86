@@ -1,20 +1,22 @@
-var emptyw = 8980;
-var breakload = 10;
+var emptyw = 11000;
+var breakload = 12;
 var breakspeed = 1115;
-var bendload = 8;
+var bendload = 9;
 var looptime = 0.2;
-var flapoverspeed= 195;
+var flapoverspeed= 185;
 var airspeed = props.globals.getNode("velocities/airspeed-kt");
 var gload = props.globals.getNode("accelerations/pilot-g",1);
 var weight = props.globals.getNode("yasim/gross-weight-lbs",1);
 var flappos = props.globals.getNode("controls/flight/flaps",1);
 var turn = props.globals.getNode("instrumentation/turn-indicator/indicated-turn-rate");
-var fail_r = props.globals.getNode("controls/flight/controls-failure-roll");
+var fail_r = props.globals.getNode("sim/failure-manager/controls/flight/aileron/fail-norm");
 var fail_d = props.globals.getNode("controls/flight/controls-failure-drag");
+var aileron = props.globals.getNode("controls/flight/aileron");
 var gear0 = props.globals.getNode("controls/gear/gear[0]/gear-down");
 var gear1 = props.globals.getNode("controls/gear/gear[1]/gear-down");
 var gear2 = props.globals.getNode("controls/gear/gear[2]/gear-down");
 var nofuel = props.globals.getNode("engines/engine[0]/out-of-fuel",1 );
+var thrust = props.globals.getNode("engines/engine[0]/thrust-lbs",1);
 var hitx = props.globals.getNode("combat/hit/hit_x",1 );
 var hity = props.globals.getNode("combat/hit/hit_y",1 );
 var hitz = props.globals.getNode("combat/hit/hit_z",1 );
@@ -26,6 +28,14 @@ var init = func {
 		settimer(main_loop, looptime);
 }
 
+var reinit = func {
+			nofuel.setAttribute("writable", 1);
+			thrust.setAttribute("writable",1);
+			flappos.setAttribute("writable",1);
+			gear0.setAttribute("writable",1);
+			gear1.setAttribute("writable",1);
+			aileron.setAttribute("writable", 1);
+}
 
 var main_loop = func {
 		check_airframe();
@@ -88,20 +98,49 @@ var kill_engine = func {
 	nofuel.setAttribute("writable", 0);
 #	interpolate ("/engines/engine[0]/fuel-press", 0, 1);
 #	interpolate ("/engines/engine[0]/mp-osi", 0, 1.5);
-	
+		thrust.setValue(0);
+		thrust.setAttribute("writable",0);
 }
 
+var tear_wing = func {
+									var slip = turn.getValue();
+										if (slip < 0) {
+												aileron.setValue(1);
+												aileron.setAttribute("writable", 0);
+										} else {
+												aileron.setValue(-1);
+												aileron.setAttribute("writable", 0);
+										}
+}
 
 var process_hit = func {
 
-		if (getprop("/hitcount" ) > 15 ) {
-				kill_engine();
-				print ("Farewell cruel World!");
+		if (getprop("/hitcount" ) > 5 ) {
+				var fail_prob = getprop ("/hitcount") + rand()*25;
+				print ("Faliure Probability: ", fail_prob);
+				if (fail_prob >= 40 ) {
+						
+						var fail_type = rand()*10;
+						print ("Failure Type: ",fail_type);
+						var state = getprop ("sim/failure-manager/fail-type");
+						if (fail_type >= 6 ) {
+								print ("Engine failure");
+								kill_engine();
+								setprop ("sim/failure-manager/smoking",1);
+						} else if (fail_type >= 3 ) {
+								print ("Fire");
+								setprop ("sim/failure-manager/burning",2);
+						} else {
+								print ("Structural failure");
+								tear_wing();
+								# setprop ("sim/failure-manager/fail-type",3);
+						}
+				}
 		}
 
-		var hit1x = hitx.getValue();
-		var hit1y = hity.getValue();
-		var hit1z = hitz.getValue();
+#		var hit1x = hitx.getValue();
+#		var hit1y = hity.getValue();
+#		var hit1z = hitz.getValue();
 
 #		print ("hit X: ", hitx.getValue(), " hit_y: ", hity.getValue(), "hit_Z: ", hitz.getValue());
 	
@@ -133,12 +172,7 @@ setlistener("/controls/gear/gear-down", func(n) {
 		}
 });
 
-# check for propstrike
-setlistener("/gear/gear[3]/compression-norm", func(n) {
-		if (n.getValue() >=0.1 ) {
-				kill_engine();
-				print("propsrtrike");
-		}
-});
 
 setlistener("/sim/signals/fdm-initialized",init);
+
+	setlistener("/sim/signals/reinit", reinit) ;

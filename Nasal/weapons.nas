@@ -1,4 +1,5 @@
 var masterarm = props.globals.getNode("controls/armament/master-arm");
+var weapselected = props.globals.getNode ("sim/armament/weapon_selected");
 var gun0 = props.globals.getNode("sim/armament/gun[0]/fire");
 var gun1 = props.globals.getNode("sim/armament/gun[1]/fire");
 var gun2 = props.globals.getNode("sim/armament/gun[2]/fire");
@@ -58,60 +59,118 @@ setlistener("/controls/armament/trigger", func(n) {
 			}
 });
 
+
+
 setlistener("/controls/armament/trigger1", func(n) {
     var stat = n.getValue();
 		if 	( stat ) {
 				if ( masterarm.getValue() )  {
-						if (statcannon0.getValue() == 1) {
-								cannon0.setValue (1);
+						if (weapselected.getValue() == 1 ) {
+								drop_bomb();
 						}
-						if (statcannon1.getValue() == 1) {
-								cannon1.setValue (1);
+						if (weapselected.getValue() == 2 ) {
+								fire_rocket();
 						}
-						if (statcannon2.getValue() == 1) {
-								cannon2.setValue (1);
+						if (weapselected.getValue() == 3 ) {
+								fire_rocketpod();
 						}
-						if (statcannon3.getValue() == 1) {
-								cannon3.setValue (1);
+						if (weapselected.getValue() == 4 ) {
+								fire_sidewinder();
 						}
-				}
-     } else {
-				cannon0.setValue (0);
-				cannon1.setValue (0);
-				cannon2.setValue (0);
-				cannon3.setValue (0);
 			}
+		}
 });
 
-setlistener("/controls/armament/trigger2", func(n) {
-    var stat = n.getValue();
-		if 	( stat ) {
-				if ( masterarm.getValue() )  {
-						if ( rpmode.getValue() == 0) {
-								if (statrocket0.getValue() == 1) {
-										rocket0.setValue (1);
-								}
-								if (statrocket1.getValue() == 1) {
-										rocket1.setValue (1);
-								}
-								if (statrocket2.getValue() == 1) {
-										rocket2.setValue (1);
-								}
-								if (statrocket3.getValue() == 1) {
-										rocket3.setValue (1);
-								}
-						} else {
-								
-						}
-							
+var drop_bomb = func () {
+		print ("dropping bomb!");
+		var packet = getprop ("sim/armament/bombpacket");
+		var dropped = 0;
+		var timed = getprop ("sim/armament/bombtrain");
+		var single = getprop ("sim/armament/bombsingle");
+
+		if ( getprop ("sim/armament/pylon0L/type") == 3 or getprop ("sim/armament/pylon0L/type") == 4 ) {
+				setprop ("sim/armament/pylon0L/type", 1);
+				setprop ("sim/armament/pylon0L/release_bomb", 1);
+				setprop ("weight[0]/lbs",0);
+				dropped = dropped+1;
+		} 
+		if ( dropped < packet ) {
+				if ( getprop ("sim/armament/pylon0R/type") == 3 or getprop ("sim/armament/pylon0R/type") == 4 ) {
+						setprop ("sim/armament/pylon0R/type", 1);
+						setprop ("sim/armament/pylon0R/release_bomb", 1);
+						setprop ("weight[1]/lbs",0);
+						dropped = dropped+1;
 				}
-     } else {
-				rocket0.setValue (0);
-				rocket1.setValue (0);
-				rocket2.setValue (0);
-				rocket3.setValue (0);
-			}
-});
+		} 
+		if ( dropped < packet ) {
+				if ( getprop ("sim/armament/pylon1L/type") == 3 or getprop ("sim/armament/pylon1L/type") == 4 ) {
+						setprop ("sim/armament/pylon1L/type", 1);
+						setprop ("sim/armament/pylon1L/release_bomb", 1);
+						setprop ("weight[2]/lbs",0);
+						dropped = dropped+1;
+				}
+		} 
+		if ( dropped < packet ) {
+				if ( getprop ("sim/armament/pylon1R/type") == 3 or getprop ("sim/armament/pylon1R/type") == 4 ) {
+						setprop ("sim/armament/pylon1R/type", 1);
+						setprop ("sim/armament/pylon1R/release_bomb", 1);
+						setprop ("weight[3]/lbs",0);
+						dropped = dropped+1;
+				}
+		}
+		print (dropped);
+		if (dropped != 0 and single == 0) { 
+				settimer (drop_bomb, timed);
+		} else {
+				print ("no Bomb left!");
+		}
+}
+
+var fire_rocket = func () {
+		print ("fire rocket!");
+		var packet = getprop ("sim/armament/rocketpacket");
+		var dropped = 0;
+		var timed = getprop ("sim/armament/rockettrain");
+		var single = getprop ("sim/armament/rocketsingle");
+
+		if ( getprop ("sim/armament/pylon0L/type") == 7  ) {
+				setprop ("sim/armament/pylon0L/type", 6);
+				setprop ("sim/armament/pylon0L/release_rocket", 1);
+				setprop ("weight[0]/lbs",100);
+				dropped = dropped+1;
+		}
+
+		if ( dropped < packet ) {
+				if ( getprop ("sim/armament/pylon0R/type") == 7 ) {
+						setprop ("sim/armament/pylon0R/type", 6);
+						setprop ("sim/armament/pylon0R/release_rocket", 1);
+						setprop ("weight[1]/lbs",100);
+						dropped = dropped+1;
+				}
+
+		if ( getprop ("sim/armament/pylon0L/type") == 6  ) {
+				setprop ("sim/armament/pylon0L/type", 1);
+				setprop ("sim/armament/pylon0L/release_rocket", 1);
+				setprop ("weight[0]/lbs",0);
+				dropped = dropped+1;
+		}
+
+ 		if ( getprop ("sim/armament/pylon0R/type") == 6  ) {
+				setprop ("sim/armament/pylon0R/type", 1);
+				setprop ("sim/armament/pylon0R/release_rocket", 1);
+				setprop ("weight[0]/lbs",0);
+				dropped = dropped+1;
+		}
+		}
+}
+
+var fire_rocketpod = func () {
+		print ("fire rocketpod!");
+}
+
+var fire_sidewinder = func () {
+		print ("fox one!");
+}
 
 #setlistener("/ai/submodels/submodel[1]/count", func(n) {
 #    var count = n.getValue();
@@ -124,19 +183,19 @@ setlistener("/controls/armament/trigger2", func(n) {
 #		}
 #});
 
-setlistener("sim/model/aircraft/impact/gun", func(n) {
-    var impact = n.getValue();
-    var solid = getprop(impact ~ "/material/solid");
+#setlistener("sim/model/aircraft/impact/gun", func(n) {
+#    var impact = n.getValue();
+#    var solid = getprop(impact ~ "/material/solid");
     
-    if (solid) {
+#    if (solid) {
 #      var long = getprop(impact ~ "/impact/longitude-deg");    
 #      var lat = getprop(impact ~ "/impact/latitude-deg");
-			setprop("sim/model/aircraft/impact/splash",0);
-    }
-		else {
-			setprop("sim/model/aircraft/impact/splash",1);
-		}
-  });
+#			setprop("sim/model/aircraft/impact/splash",0);
+#    }
+#		else {
+#			setprop("sim/model/aircraft/impact/splash",1);
+#		}
+#  });
 
 
 

@@ -6,6 +6,7 @@
 	<combat>
 			<enabled type="bool">false</enabled>
 	</combat>
+	<hitcount type="float">0.0</hitcount>
  <sim>
 
   <description>CL-13 Mk6 Sabre</description>
@@ -15,13 +16,28 @@
     <FDM type="int">4</FDM>
     <systems type="int">3</systems>
     <model type="int">4</model>
-    <cockpit type="int">3</cockpit>
+    <cockpit type="int">4</cockpit>
   </rating>
+  <startup>
+    <splash-texture>Aircraft/F-86/Sabre6splash.png</splash-texture>
+  </startup>
   <flight-model>yasim</flight-model>
   <aero>sabre6-yasim</aero>
 <!--
   <fuel-fraction>1.0</fuel-fraction>
 -->
+	<failure-manager>
+			<controls>
+					<flight>
+							<aileron>
+									<fail-norm type="float">0.0</fail-norm>
+							</aileron>
+					</flight>
+			</controls>
+			<fail-type type="int">0</fail-type>
+			<smoking type="bool">false</smoking>
+			<burning type="bool">false</burning>
+	</failure-manager>
   <systems>
    <electrical>
     <path>Aircraft/Generic/generic-electrical.xml</path>
@@ -47,9 +63,14 @@
   </panel>
 
   <model>
+		<crew>
+				<pilot>
+						<file type="string">fighterpilot50_pose</file>
+				</pilot>
+		</crew>
 		<livery>
         <name type="string">RCAF 439 Squadron</name>
-				<texture type="string">Liveries/RCAF439.jpg</texture>
+				<texture type="string">Liveries/Sabre6/RCAF439.jpg</texture>
 		</livery>
    <path>Aircraft/F-86/Models/Sabre-Mk6.xml</path>
   </model> 
@@ -111,6 +132,27 @@
     <target-z-offset-m archive="y" type="double">4.5</target-z-offset-m>
    </config>
   </view>
+
+  <view n="100">
+   <name>Pilot Cam</name>
+   <type>lookfrom</type>
+   <internal archive="y">true</internal>
+    <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.01</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
+        <default-pitch-deg type="double">0</default-pitch-deg>
+        <default-heading-deg type="double">0</default-heading-deg>
+        <front-direction-deg type="double">0</front-direction-deg>
+     <x-offset-m archive="y" type="double">-0.2</x-offset-m>
+     <y-offset-m archive="y" type="double">0.6</y-offset-m>
+     <z-offset-m archive="y" type="double">1.98</z-offset-m>
+     <pitch-offset-deg>10</pitch-offset-deg>
+		 <heading-offset-deg>190</heading-offset-deg>
+    </config>
+  </view>
+
  <autopilot>
    <config>
      <min-climb-speed-kt type="float">70.0</min-climb-speed-kt>
@@ -130,22 +172,29 @@
 
     <help>
     <key>
-      <name>N</name>
-      <desc>extend Speedbrake</desc>
+      <name>Ctrl+b</name>
+      <desc>extend/retract Speedbrake</desc>
     </key>
     <key>
-      <name>N</name>
-      <desc>retract Speedbrake</desc>
+      <name>d/D</name>
+      <desc>toggle Master Arm on/off</desc>
     </key>
     <key>
-      <name>C</name>
-      <desc>toggle Canopy</desc>
+      <name>e</name>
+      <desc>fire MGs</desc>
+    </key>
+    <key>
+      <name>E</name>
+      <desc>release Bombs/Rockets</desc>
     </key>
     <text>---Take Off---
-Flaps down 10 degrees, Apply full power. Lift Nosegear at 120-130 knots Lift off at about 150 knots.  A high AOA during takeoff is normal. Leading edge slats extend and retract automatically.
+Flaps down 10 degrees, Apply full power. Beware, the Engine takes long time to spool up. Lift Nosegear at 120-130 knots Lift off at about 150 knots.  A high AOA during takeoff is normal. Leading edge slats extend and retract automatically.
 
 ---Landing---
-lower Flaps and Gear. Approach Speed is 120 knots. Use full speedbrakes during approach may be required (in fact most pilots even opened their canopy on final to get some extra drag).</text>
+Start Approach by opening speedbrakes and slow down. Flaps and Gear can be lowered below 185 kts. Downwind should be at about 170 kts. To ensure enough power for a go around maintain at least 60-70% RPM. Reduce speed further to 135 kts at final. Cut Power when landing is ensured. Don't try a full stall landing because the AOA would be so high that the aft fuselage section would drag.
+
+---Credits---
+Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
   </help>
 
 
@@ -249,14 +298,20 @@ lower Flaps and Gear. Approach Speed is 120 knots. Use full speedbrakes during a
 			    <script>f86.config.open()</script>
 			</binding>
 		    </item>
+		     <item>
+			<label>Payload (only on Ground)</label>
+			<binding>
+			    <command>nasal</command>
+			    <script><![CDATA[	if (getprop("/velocities/groundspeed-kt") <=0.1) {
+																f86.payload.open();
+														}
+									]]></script>
+			</binding>
+		    </item>
 		</menu>
 	      </default>
 	</menubar>
-	<multiplay>
-		<generic>
-				<int n="0">0</int>
-				<int n="1">0</int>
-		</generic>
+	<multiplay include="Dialogs/multiplay.xml">
 	</multiplay>
  </sim>
 
@@ -310,14 +365,13 @@ lower Flaps and Gear. Approach Speed is 120 knots. Use full speedbrakes during a
 
  <!-- set up control properties for YASim -->
  <controls>
-		<flight>
-				<controls-failure-roll type="float">0.0</controls-failure-roll>
-				<controls-failure-drag type="float">0.0</controls-failure-drag>
-		</flight>
+		<armament>
+				<trigger1 type="bool">false</trigger1>
+		</armament>
+
    <engines>
       <engine n="0">
-        <magnetos>3</magnetos>
-        <boost type="double">0.33</boost>
+
       </engine>
    </engines>
    <gear>
@@ -352,41 +406,10 @@ lower Flaps and Gear. Approach Speed is 120 knots. Use full speedbrakes during a
         <desc>Toggle Canopy</desc>
         <binding n="0">
           <command>nasal</command>
-          <script>f86f.toggle_canopy()</script>
+          <script>f86.toggle_canopy()</script>
         </binding>
       </key>
 
-      <key n="4">
-        <name>Ctrl-d</name>
-        <desc>drop Tank</desc>
-        <binding>
-          <command>nasal</command>
-          <script>f86f.drop_tank()</script>
-        </binding>
-      </key>  
-<!-- map keys for Speedbrakes -->
-      <key n="78"> 
-        <name>N</name>
-        <desc>Extend Speedbrakes</desc>
-        <binding> 
-          <command>property-adjust</command>
-          <property>/controls/flight/speedbrake</property>
-          <step type="double">0.2</step>
-          <min type="double">0</min>
-          <max type="double">1</max>
-        </binding>
-      </key>
-      <key n="110"> 
-        <name>n</name>
-        <desc>Retract Speedbrakes</desc>
-        <binding> 
-          <command>property-adjust</command>
-          <property>/controls/flight/speedbrake</property>
-          <step type="double">-0.2</step>
-          <min type="double">0</min>
-          <max type="double">1</max>
-        </binding>
-      </key>
      <key n="100"> 
         <name>d</name>
         <desc>Toggle Master Arm on</desc>
@@ -423,6 +446,20 @@ lower Flaps and Gear. Approach Speed is 120 knots. Use full speedbrakes during a
           </binding>
         </mod-up>
       </key>
+      <key n="69">
+        <name>E</name>
+        <desc>drop Bombs/fire Rockets</desc>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/armament/trigger1</property>
+        </binding>
+        <mod-up>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/armament/trigger1</property>
+          </binding>
+        </mod-up>
+      </key>
      </keyboard>
  </input>
 
@@ -447,6 +484,9 @@ lower Flaps and Gear. Approach Speed is 120 knots. Use full speedbrakes during a
 		<failure>
 			<file>Aircraft/F-86/Nasal/failure.nas</file>
 		</failure>
+		<pilot>
+			<file>Aircraft/F-86/Nasal/pilot.nas</file>
+		</pilot>
 <!--
 		<J47>
 			<file>Aircraft/F-86/Nasal/J47.nas</file>

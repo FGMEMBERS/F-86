@@ -54,6 +54,7 @@
     <slat aoa="8" start="0.1" end="0.9" lift="0.4" drag="0.3"/>
     <control-input axis="/controls/flight/flaps" control="FLAP0"/>
     <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+    <control-input axis="/sim/failure-manager/controls/flight/aileron/fail-norm" control="FLAP1" split="true"/>
     <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
     <control-input axis="/controls/flight/slats" control="SLAT"/>
 

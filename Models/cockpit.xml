@@ -269,7 +269,7 @@
 				<name>A4Sight</name>
 				<offsets> 
 			<x-m>1.98</x-m>
-			<y-m>0.0</y-m>
+			<y-m>0.0034</y-m>
 			<z-m>0.61</z-m>
 				</offsets>
 		</model>
@@ -296,7 +296,6 @@
 			<x-m>2.146</x-m>
 			<y-m>0.322</y-m>
 			<z-m>0.28</z-m>
-			<heading-deg>180</heading-deg>
 				</offsets>
 		</model>
 		<model> 
@@ -308,6 +307,20 @@
 			<z-m>0.28</z-m>
 				</offsets>
 		</model>
+
+	<!-- Canopy -->
+    <animation> 
+      <type>translate</type>
+      <object-name>canopy.int</object-name>
+      <object-name>ADFantenna</object-name>
+      <property>controls/canopy/position-norm</property>
+      <factor>0.6</factor>
+      <axis> 
+        <x>1</x>
+        <y>0</y>
+        <z>0.05</z>
+      </axis>
+    </animation>
 
 <!-- pick -->
  <animation>

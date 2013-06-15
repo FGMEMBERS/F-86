@@ -3,17 +3,49 @@
   <PropertyList> 
     <path>sabre4.ac</path>
 
-	<model> 
-      <path>Aircraft/F-86/Models/cockpit.xml</path>
-    </model>
+
+
+
+
   <nasal>
     <load>
       var update = aircraft.overlay_update.new();
-      update.add("Aircraft/F-86/Models/AI-Liveries", "sim/model/livery/file");
-      update.add("sim/armament/pylon0L/type", "sim/multiplay/generic/int[0]");
+      update.add("Aircraft/F-86/Models/Liveries/Sabre4", "sim/model/livery/file");
+
 				var self = cmdarg();
+			var pilot_node = self.getNode("sim/model/crew/pilot");
+			io.read_properties("Aircraft/F-86/Models/Human/fighterpilot50_pose.xml", pilot_node);
+
       var target_in = self.getNode("sim/multiplay/generic/string[1]", 1);
+      var pylon0_in = self.getNode("sim/multiplay/generic/int[0]", 1);
+      var pylon1_in = self.getNode("sim/multiplay/generic/int[1]", 1);
+      var pylon2_in = self.getNode("sim/multiplay/generic/int[2]", 1);
+      var pylon3_in = self.getNode("sim/multiplay/generic/int[3]", 1);
+      var pylon4_in = self.getNode("sim/multiplay/generic/int[4]", 1);
+      var pylon5_in = self.getNode("sim/multiplay/generic/int[5]", 1);
+      var pylon6_in = self.getNode("sim/multiplay/generic/int[6]", 1);
+      var pylon7_in = self.getNode("sim/multiplay/generic/int[7]", 1);
+      var pylon8_in = self.getNode("sim/multiplay/generic/int[8]", 1);
+      var pylon9_in = self.getNode("sim/multiplay/generic/int[9]", 1);
+			var failure_in = self.getNode("sim/multiplay/generic/int[10]", 1);
+
+
+			var pylon0_out = self.getNode("sim/armament/pylon0L/type",1);
+			var pylon1_out = self.getNode("sim/armament/pylon0R/type",1);
+			var pylon2_out = self.getNode("sim/armament/pylon1L/type",1);
+			var pylon3_out = self.getNode("sim/armament/pylon1R/type",1);
+			var pylon4_out = self.getNode("sim/armament/pylon2L/type",1);
+			var pylon5_out = self.getNode("sim/armament/pylon2R/type",1);
+			var pylon6_out = self.getNode("sim/armament/pylon3L/type",1);
+			var pylon7_out = self.getNode("sim/armament/pylon3R/type",1);
+			var pylon8_out = self.getNode("sim/armament/sidewinderL/type",1);
+			var pylon9_out = self.getNode("sim/armament/sidewinderR/type",1);
+			var failure_out = self.getNode("sim/failure-manager/fail-type", 1);
+
+
 			var hitcount = self.getNode("hitcount",1);
+			var MPmodel = self.getNode("sim/model/MPmodel",1);
+			MPmodel.setValue(1);
 			var hit_x = self.getNode("combat/hit/hit_x",1);
 			var hit_y = self.getNode("combat/hit/hit_y",1);
 			var hit_z = self.getNode("combat/hit/hit_z",1);
@@ -31,6 +63,18 @@
 
 			var loopid = 0;
 			var loop = func(id) {
+			pylon0_out.setValue(pylon0_in.getValue());
+			pylon1_out.setValue(pylon1_in.getValue());
+			pylon2_out.setValue(pylon2_in.getValue());
+			pylon3_out.setValue(pylon3_in.getValue());
+			pylon4_out.setValue(pylon4_in.getValue());
+			pylon5_out.setValue(pylon5_in.getValue());
+			pylon6_out.setValue(pylon6_in.getValue());
+			pylon7_out.setValue(pylon7_in.getValue());
+			pylon8_out.setValue(pylon8_in.getValue());
+			pylon9_out.setValue(pylon9_in.getValue());
+			failure_out.setValue(failure_in.getValue());
+
 			var ownsign = getprop ("/sim/multiplay/callsign");
 			if (target_in.getValue() == ownsign ) {
 					var hits0 = getprop("/hitcount" );
@@ -76,6 +120,43 @@
 		<object-name>wing.R</object-name>
 		<object-name>wing.L</object-name>
 	</effect>
+-->
+	<model> 
+      <path>Aircraft/F-86/Models/cockpit.xml</path>
+			<name>cockpit</name>
+    </model>
+ <animation>
+  <type>select</type>
+	<object-name>cockpit</object-name>
+  <condition>
+   <not-equals>
+    <property>sim/model/MPmodel</property>
+    <value>1</value>
+   </not-equals>
+  </condition>
+ </animation>
+
+<!-- Low Poly Cockpit for MP/AI Display -->
+ <animation>
+  <type>select</type>
+	<object-name>LPcockpit</object-name>
+  <condition>
+   <equals>
+    <property>sim/model/MPmodel</property>
+    <value>1</value>
+   </equals>
+  </condition>
+ </animation>
+<!--
+ <animation>
+  <type>select</type>
+  <condition>
+   <not-equals>
+    <property>sim/crashed</property>
+    <value>true</value>
+   </not-equals>
+  </condition>
+ </animation>
 -->
 <!-- nosegear -->   
     <animation> 
@@ -182,7 +263,92 @@
         <z>0</z>
       </axis>
     </animation>
+    <animation> 
+      <type>rotate</type>
+      <object-name>geardoor2</object-name>
+      <object-name>geardoor1</object-name>
+      <property>gear/gear[0]/position-norm</property>
+      <interpolation> 
+         <entry>
+          <ind>0</ind>
+          <dep>0</dep>
+        </entry>
 
+        <entry>
+          <ind>0.15</ind>
+          <dep>0</dep>
+        </entry>
+        <entry>
+          <ind>0.85</ind>
+          <dep>90</dep>
+        </entry>
+        <entry>
+          <ind>1</ind>
+          <dep>90</dep>
+        </entry>
+      </interpolation>
+      <center> 
+        <x-m>0.576</x-m>
+        <y-m>0.0</y-m>
+        <z-m>-0.761</z-m>
+      </center>
+      <axis> 
+        <x>0</x>
+        <y>1</y>
+        <z>0</z>
+      </axis>
+    </animation>
+    <animation> 
+      <type>rotate</type>
+      <object-name>geardoor1</object-name>
+      <property>gear/gear[0]/position-norm</property>
+      <interpolation> 
+         <entry>
+          <ind>0</ind>
+          <dep>0</dep>
+        </entry>
+
+        <entry>
+          <ind>0.15</ind>
+          <dep>1</dep>
+        </entry>
+        <entry>
+          <ind>0.85</ind>
+          <dep>-90</dep>
+        </entry>
+        <entry>
+          <ind>1</ind>
+          <dep>-90</dep>
+        </entry>
+      </interpolation>
+      <center> 
+        <x-m>0.84982</x-m>
+        <y-m>0.0</y-m>
+        <z-m>-0.82696</z-m>
+      </center>
+      <axis> 
+        <x>0</x>
+        <y>1</y>
+        <z>0</z>
+      </axis>
+    </animation>
+ <animation>
+  <type>spin</type>
+  <object-name>nosewheel</object-name>
+  <object-name>nosewheel1</object-name>
+  <property>gear/gear[0]/rollspeed-ms</property>
+  <factor>-20.0</factor>
+  <center>
+   <x-m>0.74966</x-m>
+   <y-m>0</y-m>
+   <z-m>-1.52502</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
 <!-- left Maingear -->
     <animation> 
       <type>rotate</type>
@@ -285,7 +451,23 @@
         <z>0</z>
       </axis>
     </animation>
-
+ <animation>
+  <type>spin</type>
+  <object-name>wheel.L</object-name>
+  <object-name>wheel1.L</object-name>
+  <property>gear/gear[1]/rollspeed-ms</property>
+  <factor>-20.0</factor>
+  <center>
+   <x-m>5.0574</x-m>
+   <y-m>0</y-m>
+   <z-m>-1.55911</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
 <!-- right Maingear -->
     <animation> 
       <type>rotate</type>
@@ -388,7 +570,23 @@
         <z>0</z>
       </axis>
     </animation>
-
+ <animation>
+  <type>spin</type>
+  <object-name>wheel.R</object-name>
+  <object-name>wheel1.R</object-name>
+  <property>gear/gear[2]/rollspeed-ms</property>
+  <factor>-20.0</factor>
+  <center>
+   <x-m>5.0574</x-m>
+   <y-m>0</y-m>
+   <z-m>-1.55911</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
     <!--Rudder-->
     <animation> 
       <type>rotate</type>
@@ -450,7 +648,24 @@
       </axis>
     </animation>
 
-    
+<!-- Elevator -->
+    <animation> 
+      <type>rotate</type>
+      <object-name>elevator.L</object-name>
+      <object-name>elevator.R</object-name>
+      <property>surface-positions/elevator-pos-norm</property>
+      <factor>12</factor>
+      <center> 
+        <x-m>10.02271</x-m>
+        <y-m>0</y-m>
+        <z-m>0.25344</z-m>
+      </center>
+      <axis> 
+   <x>0</x>
+   <y>1.0</y>
+   <z>0</z>
+      </axis>
+    </animation> 
 
 <!-- flaps -->
     <animation> 
@@ -537,6 +752,7 @@
  <animation>
   <type>translate</type>
   <object-name>MK4slat.L</object-name>
+  <object-name>MK4slat1.L</object-name>
   <property>surface-positions/slat-pos-norm</property>
   <interpolation>
    <entry>
@@ -558,6 +774,7 @@
  <animation>
   <type>translate</type>
   <object-name>MK4slat.R</object-name>
+  <object-name>MK4slat1.R</object-name>
   <property>surface-positions/slat-pos-norm</property>
   <interpolation>
    <entry>
@@ -576,6 +793,104 @@
   </axis>
  </animation>
  
+<!-- Wingflex -->
+    <animation> 
+      <type>rotate</type>
+      <object-name>MK4wing.R</object-name>
+      <object-name>MK4wing1.R</object-name>
+    <object-name>MK4slat.R</object-name>
+    <object-name>MK4slat1.R</object-name>
+    <object-name>MK4aileron.R</object-name>
+    <object-name>flap.R</object-name>
+    <object-name>tiptrail.R</object-name>
+      <property>accelerations/pilot-g</property>
+      <factor>0.2</factor>
+			<offset>0.9</offset>
+      <center> 
+        <x-m>4.4664</x-m>
+        <y-m>0.74595</y-m>
+        <z-m>-0.83986</z-m>
+      </center>
+      <axis> 
+   <x2-m>5.38203</x2-m>
+   <y2-m>0.73376</y2-m>
+   <z2-m>-0.85652</z2-m>
+   <x1-m>2.63516</x1-m>
+   <y1-m>0.77034</y1-m>
+   <z1-m>-0.80655</z1-m>
+      </axis>
+    </animation>
+    <animation> 
+      <type>rotate</type>
+      <object-name>MK4wing1.R</object-name>
+    <object-name>MK4slat1.R</object-name>
+    <object-name>MK4aileron.R</object-name>
+    <object-name>tiptrail.R</object-name>
+      <property>accelerations/pilot-g</property>
+      <factor>0.3</factor>
+			<offset>0.9</offset>
+      <center> 
+        <x-m>5.14165</x-m>
+        <y-m>2.96647</y-m>
+        <z-m>-0.7149</z-m>
+      </center>
+      <axis> 
+   <x2-m>6.23177</x2-m>
+   <y2-m>2.95122</y2-m>
+   <z2-m>-0.74944</z2-m>
+   <x1-m>4.40335</x1-m>
+   <y1-m>2.97312</y1-m>
+   <z1-m>-0.70867</z1-m>
+      </axis>
+    </animation>  
+    <animation> 
+      <type>rotate</type>
+      <object-name>MK4wing.L</object-name>
+      <object-name>MK4wing1.L</object-name>
+    <object-name>MK4slat.L</object-name>
+    <object-name>MK4slat1.L</object-name>
+    <object-name>MK4aileron.L</object-name>
+    <object-name>flap.L</object-name>
+      <property>accelerations/pilot-g</property>
+      <factor>-0.2</factor>
+			<offset>0.9</offset>
+      <center> 
+        <x-m>4.4664</x-m>
+        <y-m>-0.74595</y-m>
+        <z-m>-0.83986</z-m>
+      </center>
+      <axis> 
+   <x2-m>5.38203</x2-m>
+   <y2-m>-0.73376</y2-m>
+   <z2-m>-0.85652</z2-m>
+   <x1-m>2.63516</x1-m>
+   <y1-m>-0.77034</y1-m>
+   <z1-m>-0.80655</z1-m>
+      </axis>
+    </animation>
+    <animation> 
+      <type>rotate</type>
+      <object-name>MK4wing1.L</object-name>
+    <object-name>MK4slat1.L</object-name>
+    <object-name>MK4aileron.L</object-name>
+      <property>accelerations/pilot-g</property>
+      <factor>-0.3</factor>
+			<offset>0.9</offset>
+      <center> 
+        <x-m>5.14165</x-m>
+        <y-m>-2.96647</y-m>
+        <z-m>-0.7149</z-m>
+      </center>
+      <axis> 
+   <x2-m>6.23177</x2-m>
+   <y2-m>-2.95122</y2-m>
+   <z2-m>-0.74944</z2-m>
+   <x1-m>4.40335</x1-m>
+   <y1-m>-2.97312</y1-m>
+   <z1-m>-0.70867</z1-m>
+      </axis>
+    </animation>  
+
  <animation>
   <type>spin</type>
   <object-name>turbinerotor</object-name>
@@ -596,10 +911,15 @@
   <animation>
     <type>material</type>
     <object-name>fuselage</object-name>
+    <object-name>ammodoor</object-name>
     <object-name>MK4wing.L</object-name>
+    <object-name>MK4wing1.L</object-name>
     <object-name>MK4wing.R</object-name>
+    <object-name>MK4wing1.R</object-name>
     <object-name>MK4slat.R</object-name>
+    <object-name>MK4slat1.R</object-name>
     <object-name>MK4slat.L</object-name>
+    <object-name>MK4slat1.L</object-name>
     <object-name>MK4aileron.L</object-name>
     <object-name>MK4aileron.R</object-name>
     <object-name>flap.L</object-name>
@@ -630,7 +950,6 @@
     <animation> 
       <type>translate</type>
       <object-name>canopy.ext</object-name>
-      <object-name>canopy.int</object-name>
       <object-name>canopy.glass</object-name>
       <property>controls/canopy/position-norm</property>
       <factor>0.6</factor>
@@ -645,6 +964,7 @@
 		<path>Aircraft/F-86/Models/loads.xml</path>
 		<nopreview/>
 	</model>
+<!-- Engine Effects -->
 		<model> 
 				<path>Aircraft/F-86/Models/Effects/contrail.xml</path>
 				<name>contrail</name>
@@ -663,4 +983,85 @@
 			<z-m>-0.13</z-m>
 				</offsets>
 		</model>
+<!-- Wingtiptrails -->
+		<model> 
+				<path>Aircraft/F-86/Models/Effects/tiptrail.xml</path>
+				<name>tiptrail.R</name>
+				<offsets> 
+			<x-m>8.2</x-m>
+			<y-m>5.40414</y-m>
+			<z-m>-0.60772</z-m>
+				</offsets>
+		</model>
+		<model> 
+				<path>Aircraft/F-86/Models/Effects/tiptrail.xml</path>
+				<name>tiptrail.L</name>
+				<offsets> 
+			<x-m>8.2</x-m>
+			<y-m>-5.40414</y-m>
+			<z-m>-0.60772</z-m>
+				</offsets>
+		</model>
+		<model> 
+				<path>Aircraft/F-86/Models/Human/fighterpilot50.xml</path>
+				<name>pilot</name>
+				<offsets> 
+			<x-m>2.68</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-0.86</z-m>
+				</offsets>
+		</model>
+<!-- Failure Effects -->
+		<model> 
+				<path>Aircraft/F-86/Models/Effects/fire.xml</path>
+				<name>fire</name>
+				<offsets> 
+			<x-m>4.2</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3</z-m>
+				</offsets>
+		</model>
+
+ <animation>
+  <type>select</type>
+	<object-name>fire</object-name>
+  <condition>
+		<or>
+		   <equals>
+    		<property>sim/failure-manager/fail-type</property>
+    		<value>1</value>
+   		</equals>
+		   <equals>
+    		<property>sim/failure-manager/fail-type</property>
+    		<value>3</value>
+   		</equals>
+		</or>
+  </condition>
+ </animation>
+
+		<model> 
+				<path>Aircraft/F-86/Models/Effects/firesmoke.xml</path>
+				<name>firesmoke</name>
+				<offsets> 
+			<x-m>9.2</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.13</z-m>
+				</offsets>
+		</model>
+ <animation>
+  <type>select</type>
+	<object-name>firesmoke</object-name>
+ <condition>
+		<or>
+		   <equals>
+    		<property>sim/failure-manager/fail-type</property>
+    		<value>2</value>
+   		</equals>
+		   <equals>
+    		<property>sim/failure-manager/fail-type</property>
+    		<value>3</value>
+   		</equals>
+		</or>
+  </condition>
+ </animation>
   </PropertyList>

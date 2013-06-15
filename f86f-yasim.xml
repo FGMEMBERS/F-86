@@ -54,6 +54,7 @@
     <slat aoa="6" start="0.1" end="0.9" lift="0.4" drag="0.3"/>
     <control-input axis="/controls/flight/flaps" control="FLAP0"/>
     <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+    <control-input axis="/sim/failure-manager/controls/flight/aileron/fail-norm" control="FLAP1" split="true"/>
     <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
     <control-input axis="/controls/flight/slats" control="SLAT"/>
 
@@ -103,18 +104,19 @@
          sweep="35"
         dihedral="0">
     <stall aoa="27" width="10" peak="0.0"/>
-    <flap0 start="0.0" end="1.0" lift="-3.0" drag="4.9"/>
+    <flap0 start="0.0" end="1.0" lift="-3.0" drag="2.0"/>
     <control-input axis="/controls/flight/speedbrake" control="FLAP0"/>
     <control-output control="FLAP0" prop="/surface-positions/speedbrake-pos-norm"/>
     <control-speed control="FLAP0" transition-time="2.0"/>
   </mstab>
 
   <jet x="-5.2" y="0" z="-0.45"
-       mass="2150"
+       mass="2550"
        thrust="5425"
        n1-idle="55" n1-max="100" n2-idle="55" n2-max="105"
        exhaust-speed="1550"
 			 spool-time="33"
+			 tsfc="0.9"
        rotation="0">
     <actionpt x="-9.5" y="0" z="0"/>
     <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
