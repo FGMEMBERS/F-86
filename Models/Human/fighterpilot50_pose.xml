@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+
+				<limb n="0">
+					  <name>hip</name>
+						<y-deg type="float">10</y-deg>
+						<z-m type="float">0</z-m>
+				</limb>
+
+				<limb n="1">  
+					  <name>chest</name>
+						<y-deg type="float">0</y-deg>
+						<z-deg type="float">0</z-deg>
+				</limb>
+
+				<limb n="2">
+					  <name>head</name>
+						<x-deg type="float">0</x-deg>
+						<y-deg type="float">0</y-deg>
+						<z-deg type="float">0</z-deg>
+				</limb>
+
+				<limb n="3"> 
+					  <name>right arm 1</name>
+						<x-deg type="float">-80</x-deg>
+						<y-deg type="float">0</y-deg>
+						<z-deg type="float">-50</z-deg>
+				</limb>
+
+				<limb n="4">
+					  <name>right arm 2</name>
+						<y-deg type="float">0</y-deg>
+						<z-deg type="float">0</z-deg>
+				</limb>
+
+				<limb n="5">
+					  <name>right hand</name>
+						<x-deg type="float">0</x-deg>
+						<y-deg type="float">0</y-deg>
+				</limb>
+
+				<limb n="6"> 
+					  <name>left arm 1</name>
+						<x-deg type="float">-80</x-deg>
+						<y-deg type="float">-10</y-deg>
+						<z-deg type="float">-50</z-deg>
+				</limb>
+
+				<limb n="7">
+					  <name>left arm 2</name>
+						<y-deg type="float">0</y-deg>
+						<z-deg type="float">15</z-deg>
+				</limb>
+
+				<limb n="8">
+					  <name>left hand</name>
+						<x-deg type="float">0</x-deg>
+						<y-deg type="float">0</y-deg>
+				</limb>
+
+				<limb n="9">
+					  <name>right leg 1</name>
+						<x-deg type="float">-10</x-deg>
+						<y-deg type="float">-100</y-deg>
+						<z-deg type="float">0</z-deg>
+				</limb>
+
+				<limb n="10">
+					  <name>right leg 2</name>
+						<y-deg type="float">60</y-deg>
+				</limb>
+
+				<limb n="11">
+					  <name>right foot</name>
+						<x-deg type="float">0</x-deg>
+						<y-deg type="float">0</y-deg>
+						<z-deg type="float">0</z-deg>
+				</limb>
+
+				<limb n="12">
+					  <name>left leg 1</name>
+						<x-deg type="float">-10</x-deg>
+						<y-deg type="float">-100</y-deg>
+						<z-deg type="float">0</z-deg>
+				</limb>
+
+				<limb n="13">
+					  <name>left leg 2</name>
+						<y-deg type="float">60</y-deg>
+				</limb>
+
+				<limb n="14">
+					  <name>left foot</name>
+						<x-deg type="float">0</x-deg>
+						<y-deg type="float">0</y-deg>
+						<z-deg type="float">0</z-deg>
+				</limb>
+
+
+
+</PropertyList>

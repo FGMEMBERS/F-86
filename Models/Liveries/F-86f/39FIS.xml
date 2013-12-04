@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">USAF, 39th FIS (McConnell)</name>
+            <texture>Liveries/F-86f/39FIS.jpg</texture>
+        </livery>
+    </model>
+    <rendering>
+   <refl_correction type="string">-0.15</refl_correction>
+    </rendering>
+</sim>
+</PropertyList>
