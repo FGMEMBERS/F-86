@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <name>config</name>
+    <modal>false</modal>
+    <draggable>true</draggable>
+    <layout>vbox</layout>
+    <x>10</x>
+    <y>-40</y>
+
+    <group>
+        <padding>4</padding>
+        <layout>hbox</layout>
+
+        <text>
+
+            <label>Configuration</label>
+        </text>
+
+        <button>
+            <halign>right</halign>
+            <pref-width>20</pref-width>
+            <pref-height>20</pref-height>
+            <legend>X</legend>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+	
+	
+    </group>
+    		<hrule/>
+    <group>
+
+         <layout>table</layout>
+
+
+    <button>
+			<legend>Select Livery</legend>
+      <equal>true</equal>
+      <default>true</default>
+            <row>0</row>
+            <col>0</col>
+			<binding> 
+        <command>nasal</command>
+        <script>aircraft.livery.dialog.toggle()</script>
+			</binding>
+    </button>
+    
+
+<!--
+    <button>
+			<legend>Select Logo</legend>
+      <equal>true</equal>
+      <default>true</default>
+            <row>0</row>
+            <col>1</col>
+			<binding> 
+        <command>nasal</command>
+        <script>mosquito.logo_dialog.toggle()</script>
+			</binding>
+    </button>   
+   <button>
+			<legend>Toggle Logo</legend>
+      <equal>true</equal>
+      <default>true</default>
+            <row>0</row>
+            <col>2</col>
+			<binding> 
+					<command>property-adjust</command>
+					<property>sim/model/logo/display</property>
+					<step type="int">1</step>
+					<min type="int">0</min>
+					<max type="int">3</max>
+					<wrap>1</wrap>
+			</binding>
+    </button>
+        <text>
+            <row>1</row>
+            <col>2</col>
+            <label>(off, left side, both sides)</label>
+        </text>
+--> 
+
+        <text>
+            <row>1</row>
+            <col>0</col>
+            <label>Combat Mode</label>
+        </text>
+
+        <checkbox>
+	    <name>combatmode</name>
+            <halign>left</halign>
+            <row>1</row>
+            <col>1</col>	
+            <property>/combat/enabled</property>
+	    <binding>
+		<command>dialog-apply</command>
+		<object-name>combatmode</object-name>
+	    </binding>
+        </checkbox>
+
+    </group>
+ 
+
+
+</PropertyList>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>rightpanel.ac</path>
+
+<animation>
+    <type>pick</type>
+ 		 <object-name>enginemasteron</object-name>
+    <visible>false</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>J47.master_on()</script>
+    </binding>
+<!--
+    <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>bf109.starter(0)</script>
+     </binding>
+    </mod-up>
+-->
+    </action>
+ </animation>
+
+<animation>
+    <type>pick</type>
+ 		 <object-name>enginemasteroff</object-name>
+    <visible>false</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>J47.master_off()</script>
+    </binding>
+<!--
+    <mod-up>
+     <binding>
+       <command>nasal</command>
+       <script>bf109.starter(0)</script>
+     </binding>
+    </mod-up>
+-->
+    </action>
+ </animation>
+
+</PropertyList>
+
+

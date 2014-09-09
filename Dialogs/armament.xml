@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<gun n="0">
+		<serviceable type="bool">true</serviceable>
+		<fire type="bool">false</fire>
+	</gun>
+	<gun n="1">
+		<serviceable type="bool">true</serviceable>
+		<fire type="bool">false</fire>
+	</gun>
+	<gun n="2">
+		<serviceable type="bool">true</serviceable>
+		<fire type="bool">false</fire>
+	</gun>
+	<gun n="3">
+		<serviceable type="bool">true</serviceable>
+		<fire type="bool">false</fire>
+	</gun>
+	<gun n="4">
+		<serviceable type="bool">true</serviceable>
+		<fire type="bool">false</fire>
+	</gun>
+	<gun n="5">
+		<serviceable type="bool">true</serviceable>
+		<fire type="bool">false</fire>
+	</gun>
+	<gunsight>
+		<sightdiameter type= "float">1.0</sightdiameter>
+	</gunsight>
+	
+  <pylon0L>
+    <type type="int">0</type>
+		<armed type="int">0</armed>
+		<fire type="bool">false</fire>
+		<serviceable type="bool">true</serviceable>
+		<release_bomb type="bool">false</release_bomb>
+  </pylon0L>
+    <pylon0R>
+    <type type="int">0</type>
+		<armed type="int">0</armed>
+		<fire type="bool">false</fire>
+		<serviceable type="bool">true</serviceable>
+		<release_bomb type="bool">false</release_bomb>
+  </pylon0R>
+	<pylon1L>
+    <type type="int">0</type>
+		<armed type="int">0</armed>
+		<fire type="bool">false</fire>
+		<serviceable type="bool">true</serviceable>
+		<release_bomb type="bool">false</release_bomb>
+	</pylon1L>
+	<pylon1R>
+    <type type="int">0</type>
+		<armed type="int">0</armed>
+		<fire type="bool">false</fire>
+		<serviceable type="bool">true</serviceable>
+		<release_bomb type="bool">false</release_bomb>
+	</pylon1R>
+
+  <pylon2L>
+    <type type="int">0</type>
+  </pylon2L>
+    <pylon2R>
+    <type type="int">0</type>
+  </pylon2R>
+	<pylon3L>
+    <type type="int">0</type>
+	</pylon3L>
+	<pylon3R>
+    <type type="int">0</type>
+	</pylon3R>
+
+	<sidewinderL>
+    <type type="int">0</type>
+	</sidewinderL>
+	<sidewinderR>
+    <type type="int">0</type>
+	</sidewinderR>
+
+
+
+	<force>
+		<force-lb type="float">1000</force-lb>
+		<force-azimuth-deg type="float">0</force-azimuth-deg>
+		<force-elevation-deg type="float">0</force-elevation-deg>
+	</force>
+	<rpmode type= "int">0</rpmode>
+	<rocket n="0">
+		<serviceable type="bool">true</serviceable>
+		<fire type="bool">false</fire>
+		<drop type="bool">false</drop>
+	</rocket>
+	<rocket n="1">
+		<serviceable type="bool">true</serviceable>
+		<fire type="bool">false</fire>
+		<drop type="bool">false</drop>
+	</rocket>
+
+	<bomb_fused type="int">0</bomb_fused>
+	<bombpacket type="int">1</bombpacket>
+	<bombsingle type="bool">false</bombsingle>
+	<bombtrain type="float">0.5</bombtrain>
+	<rocket_fused type="int">0</rocket_fused>
+	<rocketpacket type="int">1</rocketpacket>
+	<rocketsingle type="bool">false</rocketsingle>
+	<rockettrain type="float">0.5</rockettrain>
+	<weapon_selected type="int">1</weapon_selected>
+</PropertyList>

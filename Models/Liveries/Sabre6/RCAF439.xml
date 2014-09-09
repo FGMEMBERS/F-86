@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">RCAF 439 Squadron</name>
+            <texture>Liveries/Sabre6/RCAF439.jpg</texture>
+        </livery>
+    </model>
+    <rendering>
+   <refl_correction type="string">-0.15</refl_correction>
+    </rendering>
+</sim>
+</PropertyList>

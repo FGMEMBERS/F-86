@@ -1,0 +1,496 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+	<combat>
+			<enabled type="bool">false</enabled>
+	</combat>
+	<hitcount type="float">0.0</hitcount>
+ <sim>
+
+  <description>F-86F Sabre</description>
+  <author>Detlef Faber</author>
+  <status>early production</status>
+  <rating>
+    <FDM type="int">4</FDM>
+    <systems type="int">3</systems>
+    <model type="int">4</model>
+    <cockpit type="int">4</cockpit>
+  </rating>
+  <startup>
+    <splash-texture>Aircraft/F-86/F86splash.png</splash-texture>
+  </startup>
+  <flight-model>yasim</flight-model>
+  <aero>f86f-yasim</aero>
+<!--
+  <fuel-fraction>1.0</fuel-fraction>
+-->
+	<failure-manager>
+			<controls>
+					<flight>
+							<aileron>
+									<fail-norm type="float">0.0</fail-norm>
+							</aileron>
+					</flight>
+			</controls>
+			<fail-type type="int">0</fail-type>
+			<smoking type="bool">false</smoking>
+			<burning type="bool">false</burning>
+	</failure-manager>
+  <systems>
+   <electrical>
+    <path>Aircraft/Generic/generic-electrical.xml</path>
+   </electrical>
+  </systems> 
+ 
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+  <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+  <sound>
+   <path>Aircraft/F-86/Sounds/F-86-sounds.xml</path>
+  </sound>
+
+  <submodels> 
+    <serviceable type="bool">true</serviceable>
+    <path>Aircraft/F-86/Models/submodels.xml</path>
+  </submodels>
+	<armament include="Dialogs/armament.xml">
+	</armament>
+  <panel>
+  <path>Aircraft/Generic/Panels/generic-vfr-panel.xml</path>
+  <visibility>false</visibility>
+  </panel>
+
+  <model>
+		<crew include="Dialogs/crew.xml">
+		</crew>
+		<livery>
+        <name type="string">USAF, 39th FIS (McConnell)</name>
+				<texture type="string">Liveries/F-86f/39FIS.jpg</texture>
+		</livery>
+   <path>Aircraft/F-86/Models/F-86F.xml</path>
+  </model> 
+	<rendering>
+		<redout>
+			<parameters>
+				<blackout-complete-g type="float">7</blackout-complete-g>
+				<blackout-onset-g type="float">5</blackout-onset-g>
+				<redout-complete-g type="float">-5.5</redout-complete-g>
+				<redout-onset-g type="float">-3.5</redout-onset-g>
+
+
+			</parameters>
+		</redout>
+	</rendering>
+  <view n="0">
+   <internal archive="y">true</internal>
+   <config>
+    <x-offset-m archive="y" type="double">0.0</x-offset-m>
+    <y-offset-m archive="y" type="double">0.822</y-offset-m>
+    <z-offset-m archive="y" type="double">2.75</z-offset-m>
+    <pitch-offset-deg>-7.5</pitch-offset-deg>
+   </config>
+  </view>
+
+  <view n="1">
+   <config>
+    <target-z-offset-m archive="y" type="double">4.5</target-z-offset-m>
+   </config>
+  </view>
+
+  <view n="2">
+   <config>
+    <target-z-offset-m archive="y" type="double">4.5</target-z-offset-m>
+   </config>
+  </view>
+
+  <view n="3">
+   <config>
+    <target-z-offset-m archive="y" type="double">4.5</target-z-offset-m>
+   </config>
+  </view>
+
+  <view n="4">
+   <config>
+    <target-z-offset-m archive="y" type="double">4.5</target-z-offset-m>
+   </config>
+  </view>
+  <view n="5">
+   <config>
+    <target-z-offset-m archive="y" type="double">4.5</target-z-offset-m>
+   </config>
+  </view>
+  <view n="6">
+   <config>
+    <target-z-offset-m archive="y" type="double">4.5</target-z-offset-m>
+   </config>
+  </view>
+  <view n="7">
+   <config>
+    <target-z-offset-m archive="y" type="double">4.5</target-z-offset-m>
+   </config>
+  </view>
+
+  <view n="100">
+   <name>Pilot Cam</name>
+   <type>lookfrom</type>
+   <internal archive="y">true</internal>
+    <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.01</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
+        <default-pitch-deg type="double">0</default-pitch-deg>
+        <default-heading-deg type="double">0</default-heading-deg>
+        <front-direction-deg type="double">0</front-direction-deg>
+     <x-offset-m archive="y" type="double">-0.2</x-offset-m>
+     <y-offset-m archive="y" type="double">0.6</y-offset-m>
+     <z-offset-m archive="y" type="double">1.98</z-offset-m>
+     <pitch-offset-deg>10</pitch-offset-deg>
+		 <heading-offset-deg>190</heading-offset-deg>
+    </config>
+  </view>
+
+ <autopilot>
+   <config>
+     <min-climb-speed-kt type="float">70.0</min-climb-speed-kt>
+     <best-climb-speed-kt type="float">75.0</best-climb-speed-kt>
+     <target-climb-rate-fpm type="float">500.0</target-climb-rate-fpm>
+     <target-descent-rate-fpm type="float">1000.0</target-descent-rate-fpm>
+     <elevator-adj-factor type="float">4000.0</elevator-adj-factor>
+     <integral-contribution type="float">0.01</integral-contribution>
+     <zero-pitch-throttle type="float">0.45</zero-pitch-throttle>
+     <zero-pitch-trim-full-throttle type="float">0.14</zero-pitch-trim-full-throttle>
+   </config>
+ </autopilot>
+
+  <hud>
+   <enable3d>false</enable3d>
+  </hud>  
+
+    <help>
+    <key>
+      <name>Ctrl+b</name>
+      <desc>extend/retract Speedbrake</desc>
+    </key>
+    <key>
+      <name>d/D</name>
+      <desc>toggle Master Arm on/off</desc>
+    </key>
+    <key>
+      <name>e</name>
+      <desc>fire MGs</desc>
+    </key>
+    <key>
+      <name>E</name>
+      <desc>release Bombs/Rockets</desc>
+    </key>
+    <text>---Take Off---
+Flaps down 10 degrees, Apply full power. Beware, the Engine takes long time to spool up. Lift Nosegear at 120-130 knots Lift off at about 150 knots.  A high AOA during takeoff is normal. Leading edge slats extend and retract automatically.
+
+---Landing---
+Start Approach by opening speedbrakes and slow down. Flaps and Gear can be lowered below 185 kts. Downwind should be at about 170 kts. To ensure enough power for a go around maintain at least 60-70% RPM. Reduce speed further to 135 kts at final. Cut Power when landing is ensured. Don't try a full stall landing because the AOA would be so high that the aft fuselage section would drag.
+
+---Credits---
+Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
+  </help>
+
+
+
+
+  <weight n="0">
+      <name>outer left Wing</name>
+			<tank>4</tank>
+      <weight-lb type="double">0</weight-lb>
+      <selected>none</selected>
+      <opt><name>none</name><lbs>0</lbs></opt>
+      <opt><name>Droptank</name>
+      		<lbs>150.0</lbs>
+					<gals>120</gals>
+      </opt>
+      <opt>
+					<name>Bomb 500 lbs</name>
+      		<lbs>500.0</lbs>
+      </opt>
+      <opt>
+					<name>Bomb 1000 lbs</name>
+      		<lbs>500.0</lbs>
+      </opt>
+  </weight>
+
+  <weight n="1">
+      <name>outer right Wing</name>
+			<tank>5</tank>
+      <weight-lb type="double">0</weight-lb>
+      <selected>none</selected>
+      <opt><name>none</name><lbs>0</lbs></opt>
+      <opt><name>Droptank</name>
+      <lbs>150.0</lbs>
+			<gals>120</gals>
+      </opt>
+      <opt>
+					<name>Bomb 500 lbs</name>
+      		<lbs>500.0</lbs>
+      </opt>
+      <opt>
+					<name>Bomb 1000 lbs</name>
+      		<lbs>500.0</lbs>
+      </opt>
+  </weight>
+  <weight n="2">
+      <name>inner left Wing</name>
+			<tank>6</tank>
+      <weight-lb type="double">0</weight-lb>
+      <selected>none</selected>
+      <opt><name>none</name><lbs>0</lbs></opt>
+      <opt><name>Droptank</name>
+      <lbs>150.0</lbs>
+			<gals>120</gals>
+      </opt>
+      <opt>
+					<name>Bomb 500 lbs</name>
+      		<lbs>500.0</lbs>
+      </opt>
+      <opt>
+					<name>Bomb 1000 lbs</name>
+      		<lbs>500.0</lbs>
+      </opt>
+  </weight>
+
+  <weight n="3">
+      <name>inner right Wing</name>
+			<tank>7</tank>
+      <weight-lb type="double">0</weight-lb>
+      <selected>none</selected>
+      <opt><name>none</name><lbs>0</lbs></opt>
+      <opt><name>Droptank</name>
+      <lbs>150.0</lbs>
+			<gals>120</gals>
+      </opt>
+      <opt>
+					<name>Bomb 500 lbs</name>
+      		<lbs>500.0</lbs>
+      </opt>
+      <opt>
+					<name>Bomb 1000 lbs</name>
+      		<lbs>500.0</lbs>
+      </opt>
+  </weight>
+	<menubar>
+	    <default>
+		 <menu n="10">
+		      <label>Sabre</label>
+		      <enabled type="bool">true</enabled>
+		      <!--
+		      <item>
+			  <label>Magically start engine</label>
+			  <binding>
+			      <command>nasal</command>
+			      <script>R2800.magicstart();</script>
+			  </binding>
+		      </item>
+-->
+		     <item>
+			<label>Configuration</label>
+			<binding>
+			    <command>nasal</command>
+			    <script>f86.config.open()</script>
+			</binding>
+		    </item>
+		     <item>
+			<label>Payload (only on Ground)</label>
+			<binding>
+			    <command>nasal</command>
+			    <script><![CDATA[	if (getprop("/velocities/groundspeed-kt") <=0.1) {
+																f86.payload.open();
+														}
+									]]></script>
+			</binding>
+		    </item>
+		</menu>
+	      </default>
+	</menubar>
+	<multiplay include="Dialogs/multiplay.xml">
+	</multiplay>
+ </sim>
+
+ <consumables>
+  <fuel>
+   <tank n="0">
+    <name>Internal 1</name>
+    <selected type="bool">true</selected>
+   </tank>
+   <tank n="1">
+    <name>Internal 2</name>
+    <selected type="bool">true</selected>
+   </tank>
+   <tank n="2">
+    <name>Wing left</name>
+    <selected type="bool">true</selected>
+   </tank>
+   <tank n="3">
+    <name>Wing right</name>
+    <selected type="bool">true</selected>
+   </tank>
+   <tank n="4">
+    <name>outer Droptank left</name>
+    <selected type="bool">false</selected>
+		<level-gal_us>120</level-gal_us>
+   </tank>
+   <tank n="5">
+    <name>outer Droptank right</name>
+    <selected type="bool">false</selected>
+		<level-gal_us>120</level-gal_us>
+   </tank>
+   <tank n="6">
+    <name>inner Droptank left</name>
+    <selected type="bool">false</selected>
+		<level-gal_us>120</level-gal_us>
+   </tank>
+   <tank n="7">
+    <name>inner Droptank right</name>
+    <selected type="bool">false</selected>
+		<level-gal_us>120</level-gal_us>
+   </tank>
+  </fuel>
+ </consumables>
+
+ <!-- set prop for the manual "bookmark" arrow on the remote compas -->
+ <instrumentation>
+    <magnetic-compass>
+       <bookmark-heading-deg type="double">43.0</bookmark-heading-deg>
+    </magnetic-compass>
+ </instrumentation>
+
+ <!-- set up control properties for YASim -->
+ <controls>
+		<armament>
+				<trigger1 type="bool">false</trigger1>
+		</armament>
+   <engines>
+
+   </engines>
+   <gear>
+			<gear n="0">
+					<gear-down type="bool">true</gear-down>
+			</gear>
+			<gear n="1">
+					<gear-down type="bool">true</gear-down>
+			</gear>
+			<gear n="2">
+					<gear-down type="bool">true</gear-down>
+			</gear>
+			<brake-parking type="bool">true</brake-parking>
+   </gear>
+   <canopy>
+      <canopy-pos-norm type="float">1.0</canopy-pos-norm>
+   </canopy>
+ 
+
+ </controls>
+
+ <yasim>
+   <weights>
+     <pilot-lb>210</pilot-lb>
+   </weights>
+ </yasim>
+ <!-- Map Keys -->
+ <input>
+    <keyboard>
+      <key n="67">
+        <name>C</name>
+        <desc>Toggle Canopy</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>f86.toggle_canopy()</script>
+        </binding>
+      </key>
+
+
+     <key n="100"> 
+        <name>d</name>
+        <desc>Toggle Master Arm on</desc>
+        <binding> 
+          <command>property-adjust</command>
+          <property>/controls/armament/master-arm</property>
+          <step type="double">1</step>
+          <min type="double">0</min>
+          <max type="double">1</max>
+        </binding>
+      </key>
+      <key n="68"> 
+        <name>D</name>
+        <desc>Toggle Master Arm off</desc>
+        <binding> 
+          <command>property-adjust</command>
+          <property>/controls/armament/master-arm</property>
+          <step type="double">-1</step>
+          <min type="double">0</min>
+          <max type="double">1</max>
+        </binding>
+      </key>
+     <key n="101">
+        <name>e</name>
+        <desc>Fire MG</desc>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/armament/trigger</property>
+        </binding>
+        <mod-up>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/armament/trigger</property>
+          </binding>
+        </mod-up>
+      </key>
+      <key n="69">
+        <name>E</name>
+        <desc>drop Bombs/fire Rockets</desc>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/armament/trigger1</property>
+        </binding>
+        <mod-up>
+          <binding>
+            <command>property-toggle</command>
+            <property>controls/armament/trigger1</property>
+          </binding>
+        </mod-up>
+      </key>
+     </keyboard>
+ </input>
+
+<!-- Nasal files/scripts -->
+  <nasal>
+    <f86>
+      <file>Aircraft/F-86/Nasal/f86f.nas</file>
+      <script>ext_slats();</script>
+    </f86>
+		<livery>
+				<file>Aircraft/F-86/Nasal/F-86f_livs.nas</file>
+		</livery>
+    <chronograph>
+      <file>Aircraft/Instruments-3d/chronograph/chronograph.nas</file>
+    </chronograph>
+		<weapons>
+			<file>Aircraft/F-86/Nasal/weapons.nas</file>
+		</weapons>
+		<hitcheck>
+			<file>Aircraft/F-86/Nasal/hitcheck.nas</file>
+		</hitcheck>
+		<failure>
+			<file>Aircraft/F-86/Nasal/failure.nas</file>
+		</failure>
+		<pilot>
+			<file>Aircraft/F-86/Nasal/pilot.nas</file>
+		</pilot>
+		<gunsight>
+			<file>Aircraft/F-86/Models/Instruments/A4Sight/a4sight.nas</file>
+		</gunsight>
+  </nasal>
+
+</PropertyList>
+
+
+
+

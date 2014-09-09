@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+  <PropertyList> 
+			<generic>
+					<int n="0" type="int">0</int>
+					<int n="1" type="int">0</int>
+					<int n="2" type="int">0</int>
+					<int n="3" type="int">0</int>
+					<int n="4" type="int">0</int>
+					<int n="5" type="int">0</int>
+					<int n="6" type="int">0</int>
+					<int n="7" type="int">0</int>
+					<int n="8" type="int">0</int>
+					<int n="9" type="int">0</int>
+					<int n="10" type="int">0</int>
+			</generic>
+  </PropertyList>

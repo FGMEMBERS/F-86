@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>fuelq32.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>fuelq32</object-name>
+  <object-name>needle1</object-name>
+  <emission>
+    <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+    <red>0.5</red>
+    <green>0.25</green>
+    <blue>0.25</blue>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>3</max-m>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+	<offset-deg>140</offset-deg>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+  <property>/consumables/fuel/tank[0]/level-lbs</property>
+  <factor>0.1</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+  <property>/consumables/fuel/tank[1]/level-lbs</property>
+  <factor>0.1</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+  <property>/consumables/fuel/tank[2]/level-lbs</property>
+  <factor>0.1</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+  <property>/consumables/fuel/tank[3]/level-lbs</property>
+  <factor>0.1</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!--
+ <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+  <property>engines/engine[0]/fuel-flow-gph</property>
+  <interpolation>
+   <entry>
+    <ind>0</ind>
+    <dep>45</dep>
+   </entry>
+   <entry>
+    <ind>30</ind>
+    <dep>-252</dep>
+   </entry>
+   <entry>
+    <ind>50</ind>
+    <dep>-360</dep>
+   </entry>
+  </interpolation>
+  <axis>
+
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+-->
+</PropertyList>
+
+

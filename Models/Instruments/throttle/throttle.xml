@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+	<path>throttle.ac</path>
+
+
+
+
+	<!-- *** LoD *** -->
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>35</max-m>
+	</animation>
+
+</PropertyList>

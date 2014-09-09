@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>egt.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>egt</object-name>
+  <object-name>egtneedle</object-name>
+  <emission>
+    <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+    <red>0.5</red>
+    <green>0.25</green>
+    <blue>0.25</blue>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>3</max-m>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>egtneedle</object-name>
+  <property>engines/engine[0]/egt-degf</property>
+  <interpolation>
+   <entry>
+    <ind>32</ind>
+    <dep>50</dep>
+   </entry>
+   <entry>
+    <ind>1832</ind>
+    <dep>-51</dep>
+   </entry>
+
+  </interpolation>
+   <center> 
+      <x-m>0</x-m>
+      <y-m>0.0195</y-m>
+      <z-m>0</z-m>
+   </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>
+
+
