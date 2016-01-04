@@ -21,6 +21,7 @@
   <startup>
     <splash-texture>Aircraft/F-86/Sabre6splash.png</splash-texture>
   </startup>
+	<variant-of>F-86F</variant-of>
   <flight-model>yasim</flight-model>
   <aero>sabre6-yasim</aero>
 <!--
@@ -42,8 +43,8 @@
    <electrical>
     <path>Aircraft/Generic/generic-electrical.xml</path>
    </electrical>
-  </systems> 
- 
+  </systems>
+
   <virtual-cockpit archive="y">true</virtual-cockpit>
   <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 
@@ -51,7 +52,7 @@
    <path>Aircraft/F-86/Sounds/F-86-sounds.xml</path>
   </sound>
 
-  <submodels> 
+  <submodels>
     <serviceable type="bool">true</serviceable>
     <path>Aircraft/F-86/Models/submodels.xml</path>
   </submodels>
@@ -73,7 +74,7 @@
 				<texture type="string">Liveries/Sabre6/RCAF439.jpg</texture>
 		</livery>
    <path>Aircraft/F-86/Models/Sabre-Mk6.xml</path>
-  </model> 
+  </model>
 	<rendering>
 		<redout>
 			<parameters>
@@ -168,7 +169,7 @@
 
   <hud>
    <enable3d>false</enable3d>
-  </hud>  
+  </hud>
 
     <help>
     <key>
@@ -389,7 +390,7 @@ Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
    <canopy>
       <canopy-pos-norm type="float">1.0</canopy-pos-norm>
    </canopy>
- 
+
 
  </controls>
 
@@ -410,10 +411,10 @@ Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
         </binding>
       </key>
 
-     <key n="100"> 
+     <key n="100">
         <name>d</name>
         <desc>Toggle Master Arm on</desc>
-        <binding> 
+        <binding>
           <command>property-adjust</command>
           <property>/controls/armament/master-arm</property>
           <step type="double">1</step>
@@ -421,10 +422,10 @@ Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
           <max type="double">1</max>
         </binding>
       </key>
-      <key n="68"> 
+      <key n="68">
         <name>D</name>
         <desc>Toggle Master Arm off</desc>
-        <binding> 
+        <binding>
           <command>property-adjust</command>
           <property>/controls/armament/master-arm</property>
           <step type="double">-1</step>
@@ -499,7 +500,3 @@ Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
   </nasal>
 
 </PropertyList>
-
-
-
-
