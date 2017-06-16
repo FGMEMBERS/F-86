@@ -9,8 +9,24 @@
  <sim>
 
   <description>F-86F Sabre</description>
+	<long-description>The North American Aviation F-86 Sabre was the USAAF's first
+		swept-wing jet fighter, which became famous for it's dogfighting capabilties
+		against MIG-15 jets during the Korean War.  The F-86 was by some distance
+		the most produced Western jet fighter, with some 9,860 airframes built.  The
+		F-86F-40 had an uprated engine, a new slatted wing, and better agility than
+		previous versions.
+	</long-description>
   <author>Detlef Faber</author>
   <status>early production</status>
+	<tags>
+		<tag>fighter</tag>
+		<tag>north-american</tag>
+		<tag>1950s</tag>
+		<tag>1960s</tag>
+		<tag>coldwar</tag>
+		<tag>jet</tag>
+		<tag>single-engine</tag>
+	</tags>
   <rating>
     <FDM type="int">4</FDM>
     <systems type="int">3</systems>
@@ -20,6 +36,33 @@
   <startup>
     <splash-texture>Aircraft/F-86/F86splash.png</splash-texture>
   </startup>
+	<previews>
+		<preview>
+			<type>exterior</type>
+			<splash type="bool">true</splash>
+			<path>exterior1.jpg</path>
+		</preview>
+		<preview>
+			<type>exterior</type>
+			<splash type="bool">true</splash>
+			<path>exterior2.jpg</path>
+		</preview>
+		<preview>
+			<type>exterior</type>
+			<splash type="bool">true</splash>
+			<path>exterior3.jpg</path>
+		</preview>
+		<preview>
+			<type>exterior</type>
+			<splash type="bool">true</splash>
+			<path>exterior4.jpg</path>
+		</preview>
+		<preview>
+			<type>panel</type>
+			<splash type="bool">false</splash>
+			<path>cockpit.jpg</path>
+		</preview>
+	</previews>
   <flight-model>yasim</flight-model>
   <aero>f86f-yasim</aero>
 <!--
@@ -41,8 +84,8 @@
    <electrical>
     <path>Aircraft/Generic/generic-electrical.xml</path>
    </electrical>
-  </systems> 
- 
+  </systems>
+
   <virtual-cockpit archive="y">true</virtual-cockpit>
   <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 
@@ -50,7 +93,7 @@
    <path>Aircraft/F-86/Sounds/F-86-sounds.xml</path>
   </sound>
 
-  <submodels> 
+  <submodels>
     <serviceable type="bool">true</serviceable>
     <path>Aircraft/F-86/Models/submodels.xml</path>
   </submodels>
@@ -69,7 +112,7 @@
 				<texture type="string">Liveries/F-86f/39FIS.jpg</texture>
 		</livery>
    <path>Aircraft/F-86/Models/F-86F.xml</path>
-  </model> 
+  </model>
 	<rendering>
 		<redout>
 			<parameters>
@@ -166,7 +209,7 @@
 
   <hud>
    <enable3d>false</enable3d>
-  </hud>  
+  </hud>
 
     <help>
     <key>
@@ -385,7 +428,7 @@ Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
    <canopy>
       <canopy-pos-norm type="float">1.0</canopy-pos-norm>
    </canopy>
- 
+
 
  </controls>
 
@@ -407,10 +450,10 @@ Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
       </key>
 
 
-     <key n="100"> 
+     <key n="100">
         <name>d</name>
         <desc>Toggle Master Arm on</desc>
-        <binding> 
+        <binding>
           <command>property-adjust</command>
           <property>/controls/armament/master-arm</property>
           <step type="double">1</step>
@@ -418,10 +461,10 @@ Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
           <max type="double">1</max>
         </binding>
       </key>
-      <key n="68"> 
+      <key n="68">
         <name>D</name>
         <desc>Toggle Master Arm off</desc>
-        <binding> 
+        <binding>
           <command>property-adjust</command>
           <property>/controls/armament/master-arm</property>
           <step type="double">-1</step>
@@ -490,7 +533,3 @@ Many thanks to Gary Brown and Robert Maheu for the default Liveries.</text>
   </nasal>
 
 </PropertyList>
-
-
-
-
