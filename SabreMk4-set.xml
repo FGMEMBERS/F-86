@@ -10,7 +10,23 @@
 
   <description>CL-13 Mk4 Sabre</description>
   <author>Detlef Faber</author>
+	<long-description>The North American Aviation F-86 Sabre was the USAAF's first
+		swept-wing jet fighter, which became famous for it's dogfighting capabilties
+		against MIG-15 jets during the Korean War.  The F-86 was by some distance
+		the most produced Western fighter, with some 9,860 airframes built.  The
+		CL-13 Mk4 Sabre was build under license by Canadair for the RCAF and RAF,
+		and then used by a number of other air forces.
+	</long-description>
   <status>early production</status>
+	<tags>
+		<tag>fighter</tag>
+		<tag>north-american</tag>
+		<tag>1950s</tag>
+		<tag>1960s</tag>
+		<tag>coldwar</tag>
+		<tag>jet</tag>
+		<tag>single-engine</tag>
+	</tags>
   <rating>
     <FDM type="int">4</FDM>
     <systems type="int">3</systems>
@@ -20,6 +36,18 @@
   <startup>
     <splash-texture>Aircraft/F-86/Sabre4splash.png</splash-texture>
   </startup>
+	<previews>
+		<preview>
+			<type>exterior</type>
+			<splash type="bool">true</splash>
+			<path>exterior1-mk4.jpg</path>
+		</preview>
+		<preview>
+			<type>panel</type>
+			<splash type="bool">false</splash>
+			<path>cockpit.jpg</path>
+		</preview>
+	</previews>
   <flight-model>yasim</flight-model>
   <aero>sabre4-yasim</aero>
 	<variant-of>F-86F</variant-of>
